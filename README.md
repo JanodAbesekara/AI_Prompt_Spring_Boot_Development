@@ -49,3 +49,17 @@ java -jar target/article-management-0.0.1-SNAPSHOT.jar
 ```text
 http://localhost:8080/api
 ```
+
+
+Prompt:- Read prompt.md and architecture.md.
+
+Generate a Spring Boot 3 project using Java 17 with:
+
+- Maven
+- Layered architecture (controller, service, repository, entity, dto)
+- MySQL configuration
+- Article CRUD APIs
+- Basic folder structure under src/main/java/com/example/articlemanagement
+
+Do not include Docker yet.
+Only generate backend code.
