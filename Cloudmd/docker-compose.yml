@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: 2000Jd**
+      MYSQL_DATABASE: article_db
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - spring-network
+
+  springboot-app:
+    build: .
+
+    container_name: article-api
+
+    restart: always
+
+    depends_on:
+      - mysql
+
+    ports:
+      - "8080:8080"
+
+    env_file:
+      - .env
+
+    volumes:
+      - app_logs:/app/logs
+      - app_uploads:/app/uploads
+
+    networks:
+      - spring-network
+
+networks:
+  spring-network:
+
+volumes:
+  mysql_data:
+  app_logs:
+  app_uploads:
